@@ -1,3 +1,4 @@
+#v1
 def mapper(func, lists):
 
     """
@@ -24,6 +25,7 @@ x = mapper(func, lists)
 print(x)
 
 '''
+#v2
 def get_my_map(list1, list2):
     """
     The function imitate original map python function.
@@ -41,6 +43,7 @@ result_1 = get_my_map(list1, list2)
 print(result_1)
 '''
 '''
+#v3
 def mapper(func, sequences):
 
     """
