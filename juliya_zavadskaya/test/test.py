@@ -1,27 +1,24 @@
-def get_def_function(list1, list2):
+def mapper(func, lists):
+
     """
-    The function subtracts one list from another and returns the result.
-    It should remove all values (all of its occurrences) from one list, which are present in the another list.
-    :param list1: custom user list
-    :param list2: custom user list
-    :type list1: list
-    :type list2: list
-    :return: the result of lists' subtracts
+    The function imitate original map python function.
+    :param x: custom user list
+    :param y: custom user list
+    :return: the result of lists' split
     """
-    list_result = []
-    while True:
-        for i in list1:
-            for j in list2:
-                if i != j:
-                    list_result.append(i)
-        else:
-            break
-    return list_result
 
-help(get_def_function)
+    list1 = []
+    for i in range(len(lists[0])):
+        list1.append(func(lists[0][i], lists[1][i], lists[2][i]))
+    return list1
 
 
-list1 = input('Enter the first list:')
-list2 = input('Enter the second list:')
-list_result = get_def_function(list1, list2)
-print(list_result)
+def func(a, b, c):
+    return a + b + c
+
+
+lists= [['3', '4', '5'], ['13', '44', '65'], ['2', '3', '3']]
+
+x = mapper(func, lists)
+
+print(x)
