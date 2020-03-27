@@ -2,8 +2,8 @@ def mapper(func, lists):
 
     """
     The function imitate original map python function.
-    :param x: custom user list
-    :param y: custom user list
+    :param func: custom func operated with user list
+    :param lists: custom user list
     :return: the result of lists' split
     """
 
@@ -27,10 +27,8 @@ print(x)
 def get_my_map(list1, list2):
     """
     The function imitate original map python function.
-    :param list1: custom user list
-    :param list2: custom user list
-    :type list1: list
-    :type list2: list
+    :param func: custom func operated with user list
+    :param lists: custom user list
     :return: the result of lists' split
     """
     result_1 = [x + y for x, y in zip(list1, list2)]
@@ -47,8 +45,8 @@ def mapper(func, sequences):
 
     """
     The function imitate original map python function.
-    :param x: custom user list
-    :param y: custom user list
+    :param func: custom func operated with user list
+    :param lists: custom user list
     :return: the result of lists' split
     """
 
