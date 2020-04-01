@@ -7,11 +7,23 @@ punctuation = [".", ",", ":", ";", "'", '!', '"', '-']
 
 
 def lower(pretext):
+    '''
+    The function changes uppercase to lowercase.
+    :param list1: custom user list
+    :type list1: list
+    :return: the result of list's case changing
+    '''
     pretext_2 = pretext.lower().split()
     return pretext_2
 
 
 def pretext_conversion(pretext_2):
+    '''
+    The function delates inappropriate words.
+    :param list1: custom user list with lowercase
+    :type list1: list
+    :return: the result of list without inappropriate words
+    '''
     text_1 = []
     for word in pretext_2:
         if not word in delated_words:
@@ -20,6 +32,12 @@ def pretext_conversion(pretext_2):
 
 
 def delite_punctuation(text_1):
+    '''
+    The function delates punctuation.
+    :param list1: custom user list without inappropriate words
+    :type list1: list
+    :return: the result of list without punctuation
+    '''
     text = []
     for word in text_1:
         if not word in punctuation:
@@ -31,10 +49,10 @@ def delite_punctuation(text_1):
 
 def count_words(text):
     '''
-    The function subtracts one list from another and returns the result.
-    :param list1: custom user list
-    :type list1: list
-    :return: the result of lists' subtracts
+    The function counts len of the string.
+    :param list1: custom user list after formatting
+    :type list1: string
+    :return: the result is len of the string
     '''
     return len(text)
 
@@ -43,10 +61,10 @@ def count_words(text):
 
 def count_unique_words(text):
     '''
-    The function subtracts one list from another and returns the result.
-    :param list1: custom user list
-    :type list1: list
-    :return: the result of lists' subtracts
+    The function counts unique words of the string.
+    :param list1: custom user list after formatting
+    :type list1: string
+    :return: the result is numbers of unique words of the string.
     '''
     list = []
     for word in text:
@@ -58,10 +76,10 @@ def count_unique_words(text):
 # Find keywords - top 3 most frequent words;
 def count_top_3_words(text):
     '''
-    The function subtracts one list from another and returns the result.
-    :param list1: custom user list
-    :type list1: list
-    :return: the result of lists' subtracts
+    The function counts top 3 most frequent words of the string.
+    :param list1: custom user list after formatting
+    :type list1: string
+    :return: the result is top 3 most frequent words of the string.
     '''
     text_dictionary = {i: text.count(i) for i in text}
     return text_dictionary
@@ -70,6 +88,12 @@ def count_top_3_words(text):
 # Calculate frequency for each word - word quantity / all words quantity * 100.
 
 def freq(text):
+    '''
+    The function calculates frequency for each word of the string.
+    :param list1: custom user list after formatting
+    :type list1: string
+    :return: the result is calculated frequency for each word of the string.
+    '''
     str_list = text
     unique_words = set(str_list)
     for words in unique_words:
