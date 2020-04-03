@@ -81,8 +81,13 @@ def freq(text):
 
 if __name__ == '__main__':
 
+    try:
+        pretext = 'text.txt'
+    except FileNotFoundError as error:
+        print(error)
+    except OSError as error:
+        print(error)
 
-    pretext = 'text.txt'
     file_name = 'text_output.txt'
     pretext_2 = lower(pretext)
     text1 = pretext_conversion(pretext_2)
