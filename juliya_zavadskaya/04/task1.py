@@ -6,6 +6,9 @@ delated_words = ('a', 'an', 'to', 'is', 'are', 'was', 'were', 'will', 'would',
 punctuation = [".", ",", ":", ";", "'", '!', '"', '-']
 
 
+
+
+
 def lower(pretext):
     '''
     The function changes uppercase to lowercase.
