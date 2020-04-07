@@ -1,6 +1,6 @@
 from random import randint, choice
 from characters import CHARACTERS ,ENEMIES
-from game_objects import GAME_OBJECTS
+from game_objects import GAME_OBJECTS, EXIT_DOOR
 from game_map import GameMap
 
 
@@ -31,7 +31,6 @@ def fight_with_enemy(character ,enemy):
 
     return is_won
 
-MOVE_DIRACTION = {'l', 'r', 'u', 'd', 'stop'}
 
 print('Welcome to my game!')
 name = input('Enter your name: ')
@@ -41,15 +40,16 @@ level = input('Difficulty [Hard, Medium, Easy]: ')
 if level == 'Hard':
     objects = [ choice(GAME_OBJECTS)() for i in range(4) ]
     enemies = [ choice(ENEMIES)() for i in range(3) ]
-    objects += enemies
+    objects += [choice(EXIT_DOOR)() for i in range(1)]
 elif level == 'Medium':
     objects = [choice(GAME_OBJECTS)() for i in range(3)]
     enemies = [choice(ENEMIES)() for i in range(2)]
-    objects += enemies
+    objects += [choice(EXIT_DOOR)() for i in range(1)]
 elif level == 'Easy':
     objects = [choice(GAME_OBJECTS)() for i in range(3)]
     enemies = [choice(ENEMIES)() for i in range(1)]
-    objects += enemies
+    objects += [choice(EXIT_DOOR)() for i in range(2)]
+
 
 x, y = randint(0, 4), randint(0, 4)
 char = CHARACTERS[race](name, x, y)
@@ -63,60 +63,53 @@ while True:
 
     print(game_map)
 
-    while True:
-        end_game = False
-        move_diraction = input("Choose the way you go (L,R,D,U or stop): ")
-        while move_diraction not in MOVE_DIRACTION:
-            move_diraction = input("Choose the way you go (L,R,D,U or stop): ")
-        if move_diraction == "l":
-            move = (-1, 0)
-        elif move_diraction == "r":
-            move = (1, 0)
-        elif move_diraction == "u":
-            move = (0, -1)
-        elif move_diraction == "d":
-            move = (0, 1)
-        elif move_diraction == "stop":
-            break
-        elif move_diraction is not "l" or move_diraction is not "r" or \
-            move_diraction is not "d" or move_diraction is not "u" or move_diraction is not "stop":
-            print("Please enter a proper direction")
-        cur_pos = char.give_coords()
-        next_pos = tuple(map(lambda a, b: a + b, cur_pos, move))
+
+    move_diraction = input("Choose the way you go (L,R,D,U or stop): ")
+
+    if move_diraction == "u":
+         move = (-1, 0)
+    elif move_diraction == "d":
+        move = (1, 0)
+    elif move_diraction == "l":
+        move = (0, -1)
+    elif move_diraction == "r":
+        move = (0, 1)
+    elif move_diraction == "stop":
+        break
+
+    cur_pos = char.give_coords()
+    next_pos = tuple(map(lambda a, b: a + b, cur_pos, move))
+
 
     for element in objects:
         if element.respond()[0] == next_pos:
-            step = element.respond()[1]
-        else: step = ''
+            situation = element.respond()[1]
+        else: situation = ''
 
-        if step == 'Exit_door':
-            print("\nYou won! Let's play one more time?" )
-            end_game = 'Won'
-            break
-        elif step == 'Heal':
+        if situation == 'Heal':
             get_healed(char)
-        elif step == 'Trap':
+
+        elif situation == 'Trap':
             get_trapped(char)
             if char.is_dead():
-                end_game = 'Lost'
                 print('Sorry, you lost.')
                 print('Game Over')
                 break
-        elif step == 'Undead' or step == 'Murloc':
-            print ('\nYou have met an ENEMY ! ! !')
+        elif situation == 'Undead' or situation == 'Murloc':
+            print (' \nENEMY ! ! !')
             is_won = fight_with_enemy(char, element)
             if not is_won:
-                end_game = 'Lost'
-                print('Sorry, you lost.')
-                print('Game Over')
+                print('\nSorry, you lost.')
+                print('\nGame Over')
                 break
-        else: pass
-    if not end_game:
-        char.is_moving(move)
-        new_pos = char.give_coords()
+        elif situation == 'Exit_door':
+            print("\nYou won! " )
+            break
 
-        game_map.is_moving(char, *cur_pos, *new_pos)
-    else:
-        break
+    char.is_moving(move)
+    new_pos = char.give_coords()
+    game_map.is_moving(char, *cur_pos, *new_pos)
+
+
 
 

@@ -65,4 +65,5 @@ class Exit_door:
         resp = [(self._x, self._y), self._name]
         return resp
 
-GAME_OBJECTS = [Trap, Heal, Exit_door]
+GAME_OBJECTS = [Trap, Heal]
+EXIT_DOOR = [Exit_door]
