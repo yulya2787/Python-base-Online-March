@@ -4,6 +4,6 @@ def get_text(text):
     return pretext
 
 
-def text_output(text_uotput, file_name):
+def text_output(text_output, file_name):
     with open(file_name, 'a') as new_file:
-        new_file.write(str(text_uotput))
+        new_file.write(str(text_output))

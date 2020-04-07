@@ -82,24 +82,24 @@ def freq(text):
 if __name__ == '__main__':
 
     try:
-        pretext = 'text.txt'
+        pretext = get_text('text.txt')
     except FileNotFoundError as error:
         print(error)
     except OSError as error:
         print(error)
 
-    file_name = 'text_output.txt'
+
     pretext_2 = lower(pretext)
     text1 = pretext_conversion(pretext_2)
     text = delite_punctuation(text1)
 
     words_quantity = count_words(text)
     print(words_quantity)
-    text_output(f'Wards Quantity: {count_words}\n', file_name)
+    text_output(f'Wards Quantity: {count_words}\n', text)
 
     count_unique_words = count_unique_words(text)
     print(count_unique_words)
-    text_output(f'Wards Quantity: {count_unique_words}\n', file_name)
+    text_output(f'unique_words: {count_unique_words}\n', text)
 
     count_top_3_words = count_top_3_words(text)
     j = 0
@@ -108,8 +108,8 @@ if __name__ == '__main__':
         j += 1
         if j >= 3:
             break
-    text_output(f'Wards Quantity: {count_top_3_words}\n', file_name)
+    text_output(f'top_3_words: {count_top_3_words}\n', text)
 
     freq = freq(text)
     print(freq)
-    text_output(f'Wards Quantity: {freq}\n', file_name)
+    text_output(f'freq: {freq}\n', text)
