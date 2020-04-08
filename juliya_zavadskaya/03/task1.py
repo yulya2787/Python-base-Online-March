@@ -1,4 +1,4 @@
-def get_def_function(list1, list2):
+def get_dif_function(list1, list2):
     """
     The function subtracts one list from another and returns the result.
     It should remove all values (all of its occurrences) from one list, which are present in the another list.
@@ -9,19 +9,11 @@ def get_def_function(list1, list2):
     :return: the result of lists' subtracts
     """
     list_result = []
-    while True:
-        for i in list1:
-            for j in list2:
-                if i != j:
-                    list_result.append(i)
-        else:
-            break
+    for i in range(len(list1)):
+            if not(list1[i] in list2):
+                list_result.append(list1[i])
+
     return list_result
 
-help(get_def_function)
 
-
-list1 = input('Enter the first list:')
-list2 = input('Enter the second list:')
-list_result = get_def_function(list1, list2)
-print(list_result)
+print(get_dif_function([2, 3, 4, 5], [3]))

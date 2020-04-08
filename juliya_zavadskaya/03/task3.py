@@ -8,18 +8,9 @@ def cust_filter(func, lists):
     """
 
     list1 = []
-    for i in range(len(lists[0])):
-        if lists[0][i] != lists[1][i]:
-            list1.append(func(lists[0][i], lists[1][i]))
+    for i in range(len(lists)):
+        if func(lists[i]) == True:
+            list1.append(lists[i])
     return list1
 
-
-def func(a, b):
-    return a, b
-
-
-lists= [['3', '45', '5'], ['3', '44', '65']]
-
-x = cust_filter(func, lists)
-
-print(x)
+print(cust_filter(lambda x: x % 2 ,[ 1,2,3,4,5,6,7,8,9]))
