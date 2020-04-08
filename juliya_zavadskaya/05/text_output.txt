@@ -1,8 +1,1 @@
-Wards Quantity: <function count_words at 0x1069618b0>
-Wards Quantity: ['text.txt']
-Wards Quantity: {'text.txt': 1}
-Wards Quantity: None
-Wards Quantity: <function count_words at 0x10fd6c8b0>
-Wards Quantity: ['text.txt']
-Wards Quantity: {'text.txt': 1}
-Wards Quantity: None
+11['lion', 'cubs', 'play-fight', 'learn', 'social', 'skills', 'rats', 'play', 'emotional']{'lion': 1, 'cubs': 1, 'play-fight': 1, 'learn': 2, 'social': 1, 'skills': 2, 'rats': 1, 'play': 1, 'emotional': 1}None11['lion', 'cubs', 'play-fight', 'learn', 'social', 'skills', 'rats', 'play', 'emotional']{'lion': 1, 'cubs': 1, 'play-fight': 1, 'learn': 2, 'social': 1, 'skills': 2, 'rats': 1, 'play': 1, 'emotional': 1}None11['lion', 'cubs', 'play-fight', 'learn', 'social', 'skills', 'rats', 'play', 'emotional']{'lion': 1, 'cubs': 1, 'play-fight': 1, 'learn': 2, 'social': 1, 'skills': 2, 'rats': 1, 'play': 1, 'emotional': 1}None1111['lion', 'cubs', 'play-fight', 'learn', 'social', 'skills', 'rats', 'play', 'emotional']{'lion': 1, 'cubs': 1, 'play-fight': 1, 'learn': 2, 'social': 1, 'skills': 2, 'rats': 1, 'play': 1, 'emotional': 1}None

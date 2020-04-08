@@ -81,13 +81,8 @@ def freq(text):
 
 if __name__ == '__main__':
 
-    try:
-        pretext = get_text('text.txt')
-    except FileNotFoundError as error:
-        print(error)
-    except OSError as error:
-        print(error)
 
+    pretext = get_text('text_to_read.txt')
 
     pretext_2 = lower(pretext)
     text1 = pretext_conversion(pretext_2)
@@ -95,11 +90,11 @@ if __name__ == '__main__':
 
     words_quantity = count_words(text)
     print(words_quantity)
-    text_output(f'Wards Quantity: {count_words}\n', text)
+    text_output('text_output.txt', words_quantity)
 
     count_unique_words = count_unique_words(text)
     print(count_unique_words)
-    text_output(f'unique_words: {count_unique_words}\n', text)
+    text_output('text_output.txt', count_unique_words)
 
     count_top_3_words = count_top_3_words(text)
     j = 0
@@ -108,8 +103,8 @@ if __name__ == '__main__':
         j += 1
         if j >= 3:
             break
-    text_output(f'top_3_words: {count_top_3_words}\n', text)
+    text_output('text_output.txt', count_top_3_words)
 
     freq = freq(text)
     print(freq)
-    text_output(f'freq: {freq}\n', text)
+    text_output('text_output.txt', freq)
